@@ -31,7 +31,9 @@
                 <td><%= inventory.book_status %></td>
                 <td><%= inventory.lent %></td>
                 <td><%= inventory.returned %></td>
-                <td><%= link_to 'Mostrar', inventory %></td><td><%= link_to 'Editar', edit_inventory_path(inventory)%></td><td><%= link_to 'Borrar', inventory, method: :delete,data: {confirm: '¿Estás seguro?'} %></td>
+                <td><%= link_to 'Mostrar', inventory %></td>
+                <td><%= link_to 'Editar', edit_inventory_path(inventory)%></td>
+                <td><%= link_to 'Borrar', inventory, method: :delete, data: {confirm: '¿Estás seguro?'} %></td>
             </tr>
         <% end %>
     </tbody>
