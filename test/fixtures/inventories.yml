@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author: MyString
+  status: MyString
+  lent: 2021-04-17
+  returned: 2021-04-17
+
+two:
+  title: MyString
+  author: MyString
+  status: MyString
+  lent: 2021-04-17
+  returned: 2021-04-17

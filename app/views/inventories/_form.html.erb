@@ -1,0 +1,35 @@
+<%= form_with(model: @inventory, local: true) do |form|%>
+    <% if @inventory.errors.any? %>
+        <div id="error_explanation">
+            <h2>El formulario contiene <%= pluralize(@inventory.errors.count, "error")%> y no se pudo guardar el libro:</h2>
+            <ul>
+                <% @inventory.errors.full_messages.each do |message|%>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="field py-1">
+        <%= form.label :title %>
+        <%= form.text_field :title, id: :inventory_title %>
+    </div>
+    <div class="field py-1">
+        <%= form.label :author %>
+        <%= form.text_field :author, id: :inventory_author %>
+    </div>
+    <div class="field py-1">
+        <%= form.label :book_status %>
+        <%= form.select :book_status, Inventory.book_statuses.keys %>
+    </div>
+    <div class="field py-1">
+        <%= form.label :lent %>
+        <%= form.text_field :lent, id: :inventory_lent %>
+    </div>
+    <div class="field py-1">
+        <%= form.label :returned %>
+        <%= form.text_field :returned, id: :inventory_returned %>
+    </div>
+    <div class="actions py-1">
+        <%= form.submit %>
+    </div>
+<%end%>

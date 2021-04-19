@@ -1,0 +1,45 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container justify-content-end">
+        <%= search_form_for @q do |f| %>
+            <%= f.label :book_status_eq, "Estado" %>
+            <%= f.select :book_status_eq, options_for_select(Inventory.book_statuses, @q.book_status), {},{class: "form-control"} %>
+            <%= f.submit %>
+        <% end %>
+    </div>
+</nav>
+
+<h1>Biblioteca</h1>
+<hr>
+
+<p id="notice"><%= notice %></p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col"><%= sort_link(@q, :title, "Título") %></th>
+            <th scope="col">Autor</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Fecha de préstamo</th>
+            <th scope="col">Fecha de devolución</th>
+            <th scope="col" colspan="3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @inventories.each do |inventory| %>
+            <tr>
+                <td><%= inventory.title %></td>
+                <td><%= inventory.author %></td>
+                <td><%= inventory.book_status %></td>
+                <td><%= inventory.lent %></td>
+                <td><%= inventory.returned %></td>
+                <td><%= link_to 'Mostrar', inventory %></td><td><%= link_to 'Editar', edit_inventory_path(inventory)%></td><td><%= link_to 'Borrar', inventory, method: :delete,data: {confirm: '¿Estás seguro?'} %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<br>
+<div class="row">
+    <div class="pagination justify-content-center">
+        <%= paginate @inventories %>
+    </div>
+</div>
+<%= link_to 'Nuevo libro', new_inventory_path %>

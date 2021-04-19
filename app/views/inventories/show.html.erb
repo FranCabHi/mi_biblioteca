@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @inventory.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @inventory.author %></h6>
+    <p class="card-text">
+        Fecha de préstamo: <%= @inventory.lent %></br>
+        Fecha de devolución: <%= @inventory.returned %></br>
+        Estado: <%= @inventory.book_status %></br>
+    </p>
+    <div class="card-footer">
+        <%= link_to 'Editar', edit_inventory_path(@inventory) %>
+        <%= link_to 'Atrás', inventories_path %>
+    </div>
+  </div>
+</div>
